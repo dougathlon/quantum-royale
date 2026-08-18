@@ -215,6 +215,7 @@ test("@desktop public journey preserves one game-first causal chain", async ({
   await expect(page.locator("#intermission-title")).toContainText(
     "checkpoint committed",
   );
+  await expect(page.locator("#presenter-live")).toBeHidden();
   await expect(page.locator(".checkpoint-chain")).toContainText("RESOLVER #");
   await expect(page.locator(".checkpoint-chain")).toContainText("OUTCOME");
   await expect(page.locator(".checkpoint-chain")).toContainText("ACTION");

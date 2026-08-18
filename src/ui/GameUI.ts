@@ -1284,7 +1284,10 @@ export class GameUI {
     const intermission = required<HTMLElement>(this.root, "#intermission");
     const result = required<HTMLElement>(this.root, "#result-card");
     const phaseChanged = snapshot.phase !== this.previousPhase;
-    required<HTMLElement>(this.root, ".presenter-screen").hidden =
+    // Explicit pauses replace the live Coop-Cam with the round decision panel.
+    // The frozen arena remains visible beside it, so the checkpoint and betting
+    // controls do not fall below the desktop fold.
+    required<HTMLElement>(this.root, "#presenter-live").hidden =
       snapshot.phase !== "round";
     const previousPhase = this.previousPhase;
     intermission.hidden = snapshot.phase !== "intermission";
