@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
@@ -118,20 +118,20 @@ function mockHardwareBank(): FixtureBank {
 }
 
 describe("fixture-bank contract", () => {
-  it("keeps the committed V2 bank byte-identical to the untouched V1 sibling", () => {
-    const v1Bytes = readFileSync(
-      new URL(
-        "../../../quantum-royale-browser/fixtures/quantum-royale-aer-v1.json",
-        import.meta.url,
-      ),
+  it("pins the committed bank and compares the untouched V1 sibling when locally available", () => {
+    const siblingUrl = new URL(
+      "../../../quantum-royale-browser/fixtures/quantum-royale-aer-v1.json",
+      import.meta.url,
     );
     const v2Bytes = Buffer.from(FIXTURE_TEXT, "utf8");
     const hash = (bytes: Uint8Array): string =>
       createHash("sha256").update(bytes).digest("hex");
-    expect(v2Bytes.equals(v1Bytes)).toBe(true);
     expect(hash(v2Bytes)).toBe(
       "f00d3123374cbc92600677845c1e7af0e98f93e5cb137d95016f62185dc049cc",
     );
+    if (existsSync(siblingUrl)) {
+      expect(v2Bytes.equals(readFileSync(siblingUrl))).toBe(true);
+    }
   });
 
   it("accepts the committed finite-shot Aer bank", () => {
