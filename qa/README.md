@@ -7,7 +7,7 @@
 
 The V2.4 web source passes formatting, strict TypeScript, all 117 Vitest tests, and a production build. The release artifact scan passes with 16 files and finds no source map, test hook, local user path, localhost string, or legacy SVG runtime asset. The committed fixture was not regenerated; V1 and V2 retain byte-identical fixture SHA-256 `f00d3123374cbc92600677845c1e7af0e98f93e5cb137d95016f62185dc049cc`.
 
-The managed macOS host still blocks native Playwright Chromium before product assertions with `MachPortRendezvousServer ... Permission denied (1100)`. All three V2.4 browser cases are discovered. Linux CI is configured to run them against the built artifact before Pages deployment; its result must be recorded after the repository is pushed.
+The managed macOS host still blocks native Playwright Chromium before product assertions with `MachPortRendezvousServer ... Permission denied (1100)`. This is a host boundary, not a browser-test pass. [Linux CI run `32197721442`](https://github.com/dougathlon/quantum-royale/actions/runs/32197721442) passed all three V2.4 Chromium journeys against the built `/quantum-royale/` artifact: the complete desktop game, the seed-`5` audit/export path, and the `412 × 915` layout. The desktop journey also proves that an explicit round pause replaces Coop-Cam with the checkpoint/betting decision surface while the frozen arena remains visible, keeping the complete bet form inside a 1000-pixel viewport.
 
 Equivalent in-app-browser QA passed on `http://127.0.0.1:4202/?test=1&seed=5`:
 
@@ -36,6 +36,8 @@ Equivalent in-app-browser QA passed on `http://127.0.0.1:4202/?test=1&seed=5`:
 3. a `412 × 915` journey proving the six scoreboard cards remain 2×3 without horizontal overflow.
 
 ## Release evidence
+
+GitHub Pages deployment [`32197841738`](https://github.com/dougathlon/quantum-royale/actions/runs/32197841738) completed successfully. A post-deploy fetch of <https://dougathlon.github.io/quantum-royale/> returned HTTP 200 and verified the V2.4 title, canonical URL, `index,follow` metadata, repository base path, robots file, and hashed production module. The served module contains no test hook, localhost reference, `/Users/` path, provider endpoint, or source-map reference.
 
 - [`quantum-royale-v2.4-release.png`](screenshots/quantum-royale-v2.4-release.png) — active desktop arena, prominent scoreboard, selected relation, Coop-Cam, and global desk.
 - [`quantum-royale-v2.4-narrow.png`](screenshots/quantum-royale-v2.4-narrow.png) — narrow two-column scoreboard and stacked broadcast.
