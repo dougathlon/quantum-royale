@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Cornfield Comet, a gold chicken with wheat-fan tail feathers and a star-marked wing</title>
+  <g stroke="#784d11" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 54C16 52 8 45 4 36c9 2 15 6 20 12-4-9-3-17 1-23 5 9 7 16 7 25 2-8 6-14 12-18 0 10-3 18-10 25Z" fill="#c77c18"/>
+    <path d="m8 37 13 8m4-19 3 18m15-10-9 12" fill="none" stroke="#fff0a8" stroke-width="2"/>
+    <ellipse cx="49" cy="55" rx="28" ry="20" fill="#df9d22"/>
+    <path d="M32 54c8-12 25-13 35-2-4 15-21 21-34 11Z" fill="#f2bd49"/>
+    <path d="m49 48 2.5 5.5 6 .7-4.5 4 1.2 6-5.2-3-5.2 3 1.2-6-4.5-4 6-.7Z" fill="#fff0a8" stroke-width="2"/>
+    <circle cx="70" cy="38" r="15" fill="#e5aa36"/>
+    <path d="m81 37 11 5-11 5Z" fill="#f3b13e" stroke="#8a4c17"/>
+    <circle cx="75" cy="34" r="3.4" fill="#201709"/>
+    <circle cx="76" cy="33" r="1" fill="#fff" stroke="none"/>
+    <path d="M61 25c1-6 4-10 7-11 2 4 1 8 0 11 3-6 7-8 10-7 0 4-2 7-5 10" fill="#b9373b"/>
+    <path d="M64 51c5 1 9 0 13-3" fill="none"/>
+    <path d="M41 73v9m-5 1h10m19-10v9m-5 1h10" fill="none"/>
+  </g>
+</svg>

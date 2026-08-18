@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use Quantum Royale in research or teaching, please cite it as below."
+title: "Quantum Royale"
+type: software
+authors:
+  - family-names: Stark
+    given-names: Doug
+version: 0.2.4
+date-released: 2026-08-18
+license: MIT
+repository-code: "https://github.com/dougathlon/quantum-royale"
+url: "https://dougathlon.github.io/quantum-royale/"
+abstract: "A spectator autobattler that maps stored, quantum-derived pair distributions to joint actions while keeping its classical runtime and claim limits visible."
+keywords:
+  - quantum games
+  - quantum culture
+  - browser game
+  - critical technical practice

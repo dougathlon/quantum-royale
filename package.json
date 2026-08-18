@@ -1,0 +1,54 @@
+{
+  "name": "quantum-royale",
+  "version": "0.2.4",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSES.md",
+  "description": "A spectator autobattler driven by committed quantum-derived pair distributions.",
+  "homepage": "https://dougathlon.github.io/quantum-royale/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougathlon/quantum-royale.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dougathlon/quantum-royale/issues"
+  },
+  "type": "module",
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=11"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4185 --strictPort",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4185 --strictPort",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:compiler": "./compiler/run.sh -m unittest discover -s compiler/tests -v",
+    "compile:fixtures": "./compiler/run.sh compiler/compile_fixtures.py",
+    "compile:dry-run": "./compiler/run.sh compiler/compile_fixtures.py --dry-run",
+    "test:e2e": "playwright test",
+    "build:test": "tsc -b && VITE_ENABLE_TEST_API=1 vite build --outDir dist-test",
+    "test:e2e:built": "pnpm build:test && QUANTUM_ROYALE_E2E_BUILT=1 playwright test",
+    "check:web": "prettier --check . && tsc -b --pretty false && vitest run && pnpm build",
+    "check:compiler": "./compiler/run.sh -m unittest discover -s compiler/tests -v",
+    "check:artifact": "node scripts/check-release-artifact.mjs",
+    "check:release": "pnpm check:web && pnpm check:artifact",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm check:web && pnpm check:compiler"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.0.0",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.0"
+  }
+}

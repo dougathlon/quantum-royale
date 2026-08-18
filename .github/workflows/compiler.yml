@@ -1,0 +1,17 @@
+name: Compiler verification boundary
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  document-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record current compiler boundary
+        run: |
+          sha256sum fixtures/quantum-royale-aer-v1.json fixtures/compilation-report.md
+          echo "::notice::Full compiler verification remains local until the pinned Python and VCS dependency environment is reproducible from this repository. See compiler/README.md."
