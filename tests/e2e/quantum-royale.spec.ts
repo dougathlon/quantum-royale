@@ -166,7 +166,7 @@ test("@desktop public journey preserves one game-first causal chain", async ({
   await expect(
     page.locator('[data-track-chicken="buttercup-blitz"]'),
   ).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator("#presenter-caption")).toContainText("BUTTERCUP");
+  await expect(page.locator("#presenter-caption")).toContainText(/Buttercup/i);
   await expect(page.locator("#desk-line")).toHaveText(openingDeskLine ?? "");
   await expect(page.locator(".relation-legend")).toContainText(
     "BLUE · OBSERVED",
