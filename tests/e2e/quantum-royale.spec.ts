@@ -283,6 +283,7 @@ test("@desktop public journey preserves one game-first causal chain", async ({
   expect(restarted?.auditHistory.map((event) => event.type)).toEqual([
     "MATCH_STARTED",
     "ROUND_STARTED",
+    "SPOTLIGHT_FALLBACK_SCHEDULED",
   ]);
   expect(observed.errors).toEqual([]);
   const pageOrigin = new URL(page.url()).origin;
